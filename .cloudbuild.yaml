@@ -1,0 +1,17 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Add additional Tags
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    merchantImageBase="us-central1-docker.pkg.dev/aqua-demo-1/aqfleetman-webapp/webapp"
+    PYTHONUNBUFFERED=1 gcloud builds submit -t ${merchantImageBase} ./
+    echo "build submit merchantImage"
+    gcloud container images add-tag $merchantImageBase $merchantImageBase:vg1.1
+    echo "build submit completed4"
+timeout: 1800s
+options:
+  machineType: 'N1_HIGHCPU_2'
+

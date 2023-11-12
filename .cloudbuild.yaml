@@ -1,5 +1,4 @@
 steps:
-
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Add additional Tags
   entrypoint: /bin/sh
@@ -13,5 +12,5 @@ steps:
     echo "build submit completed4"
 timeout: 1800s
 options:
-  machineType: 'N1_HIGHCPU_2'
+  machineType: 'E2_SMALL'
 
